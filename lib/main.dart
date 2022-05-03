@@ -22,15 +22,27 @@ class _hoemPageState extends State<hoemPage> {
           title: Text(date),
         ),
         body: GestureDetector(
-            onTap: () {setState(() {
-              date = DateTime.now().toIso8601String();
-              
-            });
+            onTap: () {
+              setState(() {
+                date = DateTime.now().toIso8601String();
+              });
             },
             child: Container(
               color: Colors.white,
             )),
       ),
     );
+  }
+}
+
+class Api {
+  Future<String> apicall() {
+    String? datetime;
+    return Future.delayed(
+            const Duration(seconds: 2), () => DateTime.now().toIso8601String())
+        .then((value) {
+      datetime = value;
+      return value;
+    });
   }
 }
